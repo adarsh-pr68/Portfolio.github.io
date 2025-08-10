@@ -21,9 +21,46 @@
             color: white;
             overflow-x: hidden;
         }
+
+        /* Minimal, professional shaded borders */
+        header, nav, section, footer {
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px auto;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.07);
+            box-shadow: none;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        header:hover, nav:hover, section:hover, footer:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 152, 0, 0.3);
+        }
+
+        nav {
+            max-width: 600px;
+            text-align: center;
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 8px 12px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 15px;
+            border: 2px solid white;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            background: white;
+            color: #1f1c2c;
+        }
+
         header {
             text-align: center;
-            padding: 40px 20px;
             animation: fadeIn 1.5s ease-in-out;
         }
         header img {
@@ -45,44 +82,28 @@
             font-weight: bold;
             opacity: 0.9;
         }
-        nav {
-            text-align: center;
-            margin: 20px 0;
-        }
-        nav a {
-            text-decoration: none;
-            color: white;
-            margin: 0 15px;
-            font-weight: bold;
-            padding: 10px 15px;
-            border: 2px solid white;
-            border-radius: 20px;
-            transition: 0.3s;
-        }
-        nav a:hover {
-            background: white;
-            color: #1f1c2c;
-        }
+
         section {
-            max-width: 900px;
-            margin: auto;
-            padding: 40px 20px;
             animation: fadeInUp 1s ease-in-out;
         }
+
         h2 {
             font-size: 1.8rem;
             margin-bottom: 15px;
             text-decoration: underline;
             text-decoration-color: #ff9800;
         }
+
         p,
         ul {
             line-height: 1.6;
             opacity: 0.95;
         }
+
         ul {
             padding-left: 20px;
         }
+
         .btn {
             display: inline-block;
             margin-top: 10px;
@@ -98,6 +119,7 @@
             background: #e68900;
             color: white;
         }
+
         .social-icons {
             margin-top: 15px;
         }
@@ -112,6 +134,7 @@
             color: #ff9800;
             transform: scale(1.2);
         }
+
         .count-box {
             background: rgba(255, 255, 255, 0.1);
             padding: 20px;
@@ -121,12 +144,13 @@
             font-weight: bold;
             margin-bottom: 15px;
         }
+
         footer {
             text-align: center;
-            padding: 20px;
             background: rgba(0, 0, 0, 0.2);
             margin-top: 30px;
         }
+
         /* Skills section styling */
         .skill-bar {
             margin: 15px 0;
@@ -152,6 +176,7 @@
             font-weight: bold;
             animation: fillAnimation 2s ease-in-out forwards;
         }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -183,6 +208,34 @@
         @keyframes fillAnimation {
             from {
                 width: 0;
+            }
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 600px) {
+            header img {
+                width: 120px;
+                height: 120px;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            nav {
+                max-width: 100%;
+                padding: 10px;
+            }
+            section {
+                padding: 25px 15px;
+                margin: 12px 10px;
+                max-width: 95%;
+            }
+            footer {
+                padding: 15px 10px;
+                font-size: 0.9rem;
+                max-width: 95%;
             }
         }
     </style>
@@ -337,4 +390,3 @@
     </script>
 </body>
 </html>
-
