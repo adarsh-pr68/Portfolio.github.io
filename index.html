@@ -6,396 +6,334 @@
     <title>Adarsh PR | Portfolio</title>
     <!-- Font Awesome CDN -->
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
-      }
-      body {
-        background: linear-gradient(135deg, #1f1c2c, #928dab);
-        color: white;
-        overflow-x: hidden;
-        font-size: 16px;
-      }
-      header {
-        text-align: center;
-        padding: 40px 20px;
-        animation: fadeIn 1.5s ease-in-out;
-      }
-      header img {
-        width: 40vw;
-        max-width: 160px;
-        height: auto;
-        border-radius: 50%;
-        border: 4px solid white;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-        animation: zoomIn 1.5s ease-in-out forwards;
-        transition: transform 0.5s ease;
-        display: inline-block;
-      }
-      header h1 {
-        font-size: 2.5rem;
-        font-weight: bold;
-        margin-top: 15px;
-      }
-      header p {
-        font-size: 1.2rem;
-        font-weight: bold;
-        opacity: 0.9;
-      }
-      nav {
-        text-align: center;
-        margin: 20px 0;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      nav a {
-        text-decoration: none;
-        color: white;
-        margin: 5px;
-        font-weight: bold;
-        padding: 10px 15px;
-        border: 2px solid white;
-        border-radius: 20px;
-        transition: 0.3s;
-        font-size: 1rem;
-      }
-      nav a:hover {
-        background: white;
-        color: #1f1c2c;
-      }
-      section {
-        max-width: 90vw;
-        margin: auto;
-        padding: 40px 20px;
-        animation: fadeInUp 1s ease-in-out;
-      }
-      h1 {
-        font-size: 2.5rem;
-      }
-      h2 {
-        font-size: 1.8rem;
-        margin-bottom: 15px;
-        text-decoration: underline;
-        text-decoration-color: #ff9800;
-      }
-      p,
-      ul {
-        line-height: 1.6;
-        opacity: 0.95;
-        font-size: 1rem;
-      }
-      ul {
-        padding-left: 20px;
-      }
-      .btn {
-        display: inline-block;
-        margin-top: 10px;
-        background: #ff9800;
-        color: white;
-        padding: 10px 15px;
-        border-radius: 20px;
-        font-weight: bold;
-        text-decoration: none;
-        transition: 0.3s;
-        font-size: 1rem;
-      }
-      .btn:hover {
-        background: #e68900;
-        color: white;
-      }
-      .social-icons {
-        margin-top: 15px;
-      }
-      .social-icons a {
-        display: inline-block;
-        margin: 0 10px;
-        color: white;
-        font-size: 1.5rem;
-        transition: 0.3s;
-      }
-      .social-icons a:hover {
-        color: #ff9800;
-        transform: scale(1.2);
-      }
-      .count-box {
-        background: rgba(255, 255, 255, 0.1);
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin-bottom: 15px;
-      }
-      footer {
-        text-align: center;
-        padding: 20px;
-        background: rgba(0, 0, 0, 0.2);
-        margin-top: 30px;
-      }
-      /* Skills section styling */
-      .skill-bar {
-        margin: 15px 0;
-      }
-      .skill-bar span {
-        font-weight: bold;
-        display: block;
-        margin-bottom: 5px;
-      }
-      .progress {
-        background-color: rgba(255, 255, 255, 0.2);
-        border-radius: 20px;
-        overflow: hidden;
-        height: 25px;
-      }
-      .progress-fill {
-        height: 100%;
-        line-height: 25px;
-        color: white;
-        text-align: right;
-        padding-right: 10px;
-        border-radius: 20px;
-        font-weight: bold;
-        animation: fillAnimation 2s ease-in-out forwards;
-      }
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
-        to {
-          opacity: 1;
-        }
-      }
-      @keyframes fadeInUp {
-        from {
-          transform: translateY(20px);
-          opacity: 0;
-        }
-        to {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
-      @keyframes zoomIn {
-        from {
-          transform: scale(0.5);
-          opacity: 0;
-        }
-        to {
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-      @keyframes fillAnimation {
-        from {
-          width: 0;
-        }
-      }
-
-      /* Responsive Styles */
-      @media (max-width: 768px) {
-        header {
-          padding: 30px 15px;
-        }
-        header h1 {
-          font-size: 2rem;
-        }
-        nav {
-          gap: 8px;
-        }
-        nav a {
-          font-size: 0.9rem;
-          padding: 8px 12px;
-        }
-      }
-
-      @media (max-width: 480px) {
         body {
-          font-size: 14px;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            color: white;
+            overflow-x: hidden;
+        }
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            animation: fadeIn 1.5s ease-in-out;
         }
         header img {
-          width: 60vw;
-          max-width: 120px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            animation: zoomIn 1.5s ease-in-out forwards;
+            transition: transform 0.5s ease;
         }
         header h1 {
-          font-size: 1.8rem;
+            font-size: 2.8rem;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        header p {
+            font-size: 1.2rem;
+            font-weight: bold;
+            opacity: 0.9;
         }
         nav {
-          flex-direction: column;
-          align-items: center;
+            text-align: center;
+            margin: 20px 0;
         }
         nav a {
-          width: 80%;
-          text-align: center;
-          margin: 5px 0;
+            text-decoration: none;
+            color: white;
+            margin: 0 15px;
+            font-weight: bold;
+            padding: 10px 15px;
+            border: 2px solid white;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            background: white;
+            color: #1f1c2c;
         }
         section {
-          padding: 20px 10px;
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+            animation: fadeInUp 1s ease-in-out;
+        }
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-decoration: underline;
+            text-decoration-color: #ff9800;
+        }
+        p,
+        ul {
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+        ul {
+            padding-left: 20px;
         }
         .btn {
-          width: 100%;
-          text-align: center;
-          padding: 12px 0;
-          font-size: 1rem;
+            display: inline-block;
+            margin-top: 10px;
+            background: #ff9800;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #e68900;
+            color: white;
+        }
+        .social-icons {
+            margin-top: 15px;
         }
         .social-icons a {
-          font-size: 1.5rem;
-          margin: 0 6px;
+            display: inline-block;
+            margin: 0 10px;
+            color: white;
+            font-size: 1.5rem;
+            transition: 0.3s;
         }
-      }
+        .social-icons a:hover {
+            color: #ff9800;
+            transform: scale(1.2);
+        }
+        .count-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+        }
+        /* Skills section styling */
+        .skill-bar {
+            margin: 15px 0;
+        }
+        .skill-bar span {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .progress {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            height: 25px;
+        }
+        .progress-fill {
+            height: 100%;
+            line-height: 25px;
+            color: white;
+            text-align: right;
+            padding-right: 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            animation: fillAnimation 2s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        @keyframes fillAnimation {
+            from {
+                width: 0;
+            }
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <header>
-      <img
-        id="profile-pic"
-        src="2025-08-10T13_16_33.png"
-        alt="Adarsh PR"
-      />
-      <h1>Adarsh PR</h1>
-      <p>Sreyas Institute of Engineering and Technology | 3rd Year CSE Student</p>
+        <img
+            id="profile-pic"
+            src="c:\Users\adars\OneDrive\Pictures\Screenshots\2025-08-10T13_16_33.png"
+            alt="Adarsh PR"
+        />
+        <h1>Adarsh PR</h1>
+        <p>Sreyas Institute of Engineering and Technology | 3rd Year CSE Student</p>
     </header>
 
     <nav>
-      <a href="#about">About Me</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#certificates">Certificates</a>
-      <a href="#contact">Contact</a>
+        <a href="#about">About Me</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact">Contact</a>
     </nav>
 
     <section id="about">
-      <h2>About Me</h2>
-      <p>
-        Hello! I am <strong>Adarsh PR</strong>, a passionate Computer Science
-        Engineering student with skills in Python, Java, HTML, CSS, and C. I
-        enjoy building innovative real-time projects and preparing for a strong
-        career in tech.
-      </p>
+        <h2>About Me</h2>
+        <p>
+            Hello! I am <strong>Adarsh PR</strong>, a passionate Computer Science
+            Engineering student with skills in Python, Java, HTML, CSS, and C. I
+            enjoy building innovative real-time projects and preparing for a strong
+            career in tech.
+        </p>
     </section>
 
     <section id="skills">
-      <h2>Skills</h2>
-      <div class="skill-bar">
-        <span>Python</span>
-        <div class="progress">
-          <div
-            class="progress-fill"
-            style="width: 90%; background-color: #4cafef"
-          >
-            90%
-          </div>
+        <h2>Skills</h2>
+        <div class="skill-bar">
+            <span>Python</span>
+            <div class="progress">
+                <div
+                    class="progress-fill"
+                    style="width: 90%; background-color: #4cafef"
+                    >90%</div
+                >
+            </div>
         </div>
-      </div>
-      <div class="skill-bar">
-        <span>Java</span>
-        <div class="progress">
-          <div
-            class="progress-fill"
-            style="width: 85%; background-color: #f39c12"
-          >
-            85%
-          </div>
+        <div class="skill-bar">
+            <span>Java</span>
+            <div class="progress">
+                <div
+                    class="progress-fill"
+                    style="width: 85%; background-color: #f39c12"
+                    >85%</div
+                >
+            </div>
         </div>
-      </div>
-      <div class="skill-bar">
-        <span>HTML & CSS</span>
-        <div class="progress">
-          <div
-            class="progress-fill"
-            style="width: 95%; background-color: #27ae60"
-          >
-            95%
-          </div>
+        <div class="skill-bar">
+            <span>HTML & CSS</span>
+            <div class="progress">
+                <div
+                    class="progress-fill"
+                    style="width: 95%; background-color: #27ae60"
+                    >95%</div
+                >
+            </div>
         </div>
-      </div>
-      <div class="skill-bar">
-        <span>C Programming</span>
-        <div class="progress">
-          <div
-            class="progress-fill"
-            style="width: 80%; background-color: #e74c3c"
-          >
-            80%
-          </div>
+        <div class="skill-bar">
+            <span>C Programming</span>
+            <div class="progress">
+                <div
+                    class="progress-fill"
+                    style="width: 80%; background-color: #e74c3c"
+                    >80%</div
+                >
+            </div>
         </div>
-      </div>
-      <div class="skill-bar">
-        <span>SQL</span>
-        <div class="progress">
-          <div
-            class="progress-fill"
-            style="width: 75%; background-color: #9b59b6"
-          >
-            75%
-          </div>
+        <div class="skill-bar">
+            <span>SQL</span>
+            <div class="progress">
+                <div
+                    class="progress-fill"
+                    style="width: 75%; background-color: #9b59b6"
+                    >75%</div
+                >
+            </div>
         </div>
-      </div>
     </section>
 
     <section id="projects">
-      <h2>Projects</h2>
-      <p>Some of my notable works include:</p>
-      <ul>
-        <li>Weather Prediction System</li>
-        <li>Supply Chain Management System</li>
-        <li>Scientific Calculator</li>
-        <li>Rescue & Medication App for Stray Animals</li>
-      </ul>
-      <a class="btn" href="https://github.com/projects" target="_blank"
-        >View GitHub</a
-      >
+        <h2>Projects</h2>
+        <p>Some of my notable works include:</p>
+        <ul>
+            <li>Weather Prediction System</li>
+            <li>Supply Chain Management System</li>
+            <li>Scientific Calculator</li>
+            <li>Rescue & Medication App for Stray Animals</li>
+        </ul>
+        <a class="btn" href="https://github.com/projects" target="_blank"
+            >View GitHub</a
+        >
     </section>
 
     <section id="certificates">
-      <h2>Certificates & Achievements</h2>
-      <div class="count-box">Total Certificates: 5</div>
-      <a class="btn" href="https://drive.google.com/" target="_blank"
-        >View All</a
-      >
+        <h2>Certificates & Achievements</h2>
+        <div class="count-box">Total Certificates: 5</div>
+        <a class="btn" href="https://drive.google.com/" target="_blank"
+            >View All</a
+        >
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
-      <p><strong>Email:</strong> adarsh.pr.68@gmail.com</p>
-      <p><strong>Phone:</strong> +91-7396864503</p>
-      <div class="social-icons">
-        <a href="mailto:adarsh.pr.68@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://github.com/adarsh-pr68" target="_blank"
-          ><i class="fab fa-github"></i
-        ></a>
-        <a href="https://www.linkedin.com/in/adarsh-pr-3a126a349/" target="_blank"
-          ><i class="fab fa-linkedin"></i
-        ></a>
-        <a href="https://www.instagram.com/_adu_68_/" target="_blank"
-          ><i class="fab fa-instagram"></i
-        ></a>
-      </div>
-      <br />
-      <a href="resume.pdf" class="btn" download>Download Resume</a>
+        <h2>Contact</h2>
+        <p><strong>Email:</strong> adarsh.pr.68@gmail.com</p>
+        <p><strong>Phone:</strong> +91-7396864503</p>
+        <div class="social-icons">
+            <a href="mailto:adarsh.pr.68@gmail.com"
+                ><i class="fas fa-envelope"></i
+            ></a>
+            <a href="https://github.com/adarsh-pr68" target="_blank"
+                ><i class="fab fa-github"></i
+            ></a>
+            <a
+                href="https://www.linkedin.com/in/adarsh-pr-3a126a349/"
+                target="_blank"
+                ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="https://www.instagram.com/_adu_68_/" target="_blank"
+                ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://wa.me/917396864503" target="_blank"
+                ><i class="fab fa-whatsapp"></i
+            ></a>
+            <a href="https://twitter.com/your_twitter_handle" target="_blank"
+                ><i class="fab fa-twitter"></i
+            ></a>
+        </div>
+        <br />
+        <a href="resume.pdf" class="btn" download>Download Resume</a>
     </section>
 
     <footer>© Adarsh PR | All rights reserved.</footer>
 
     <script>
-      const profilePic = document.getElementById("profile-pic");
+        const profilePic = document.getElementById('profile-pic');
 
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
-          profilePic.style.transform = "scale(0.8)";
-        } else {
-          profilePic.style.transform = "scale(1)";
-        }
-      });
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                profilePic.style.transform = 'scale(0.8)';
+            } else {
+                profilePic.style.transform = 'scale(1)';
+            }
+        });
     </script>
-  </body>
+</body>
 </html>
-
-
