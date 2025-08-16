@@ -1,781 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Adarsh PR | Portfolio</title>
-    <!-- Font Awesome CDN -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-        body {
-            background: linear-gradient(135deg, #1f1c2c, #928dab);
-            color: white;
-            overflow-x: hidden;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adarsh PR | Portfolio</title>
 
-        /* Minimal, professional shaded borders */
-        header, nav, section, footer {
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 15px auto;
-            max-width: 900px;
-            background: rgba(255, 255, 255, 0.07);
-            box-shadow: none;
-            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
-        }
-        header:hover, nav:hover, section:hover, footer:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(255, 152, 0, 0.3);
-        }
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
-        nav {
-            max-width: 600px;
-            text-align: center;
-        }
-        nav a {
-            display: inline-block;
-            margin: 8px 12px;
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            padding: 10px 15px;
-            border: 2px solid white;
-            border-radius: 20px;
-            transition: 0.3s;
-        }
-        nav a:hover {
-            background: white;
-            color: #1f1c2c;
-        }
+  <style>
+    /* ===== GLOBAL STYLES ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background: linear-gradient(135deg, #0f172a, #1e293b, #0f766e); color: #f8fafc; line-height: 1.6; scroll-behavior: smooth; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3 { font-weight: 600; margin-bottom: 10px; }
+    section { padding: 80px 20px; max-width: 1100px; margin: auto; }
+    .btn { display: inline-block; padding: 12px 24px; margin-top: 15px; background: #14b8a6; color: #fff; font-weight: bold; border-radius: 8px; transition: all 0.3s ease; }
+    .btn:hover { background: #0d9488; transform: translateY(-2px); box-shadow: 0 0 15px rgba(20, 184, 166, 0.7); }
 
-        header {
-            text-align: center;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-        header img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            border: 4px solid white;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-            animation: zoomIn 1.5s ease-in-out forwards;
-            transition: transform 0.5s ease;
-        }
-        header h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-top: 15px;
-            letter-spacing: 0.5px;
-        }
-        header p {
-            font-size: 1.1rem;
-            font-weight: 600;
-            opacity: 0.95;
-        }
+    /* ===== HEADER ===== */
+    header { background: rgba(15, 23, 42, 0.95); position: sticky; top: 0; z-index: 999; display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; }
+    header h1 { font-size: 1.5rem; color: #22d3ee; }
+    nav a { margin-left: 20px; font-weight: 500; color: #f8fafc; transition: 0.3s; }
+    nav a:hover { color: #38bdf8; }
 
-        section { animation: fadeInUp 1s ease-in-out; }
-        h2 {
-            font-size: 1.9rem;
-            margin-bottom: 16px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: underline;
-            text-decoration-color: #ff9800;
-            text-underline-offset: 6px;
-        }
-        h2 .fa { opacity: 0.9; }
+    /* Resume Button Glow */
+    .resume-btn { background: #0ea5e9; color: #fff; padding: 10px 18px; border-radius: 25px; font-weight: bold; animation: glow 1.5s infinite alternate; }
+    @keyframes glow { from { box-shadow: 0 0 5px #38bdf8, 0 0 10px #38bdf8; } to { box-shadow: 0 0 20px #0ea5e9, 0 0 30px #0ea5e9; } }
 
-        p, ul { line-height: 1.6; opacity: 0.96; }
-        ul { padding-left: 20px; }
+    /* ===== HERO WITH PHOTO ===== */
+.hero-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
 
-        .btn {
-            display: inline-block;
-            margin-top: 10px;
-            background: #ff9800;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 22px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        .btn:hover { background: #e68900; color: white; }
+.hero-text {
+  max-width: 600px;
+  text-align: left;
+}
 
-        .pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 12px;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.12);
-            border: 1px solid rgba(255,255,255,0.18);
-            font-size: 0.88rem;
-            font-weight: 600;
-            margin: 6px 8px 0 0;
-            white-space: nowrap;
-        }
+.hero-photo img {
+  width: 230px;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #22d3ee;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.7);
+  transition: transform 0.3s ease;
+}
 
-        .social-icons { margin-top: 15px; }
-        .social-icons a {
-            display: inline-block;
-            margin: 0 10px;
-            color: white;
-            font-size: 1.5rem;
-            transition: 0.3s;
-        }
-        .social-icons a:hover { color: #ff9800; transform: scale(1.2); }
+.hero-photo img:hover {
+  transform: scale(1.05);
+}
 
-        .count-box {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
+/* Responsive */
+@media(max-width: 768px){
+  .hero-content { flex-direction: column; text-align: center; }
+  .hero-text { text-align: center; }
+}
 
-        footer {
-            text-align: center;
-            background: rgba(0, 0, 0, 0.2);
-            margin-top: 30px;
-        }
 
-        /* ========= MASTERED SKILLS — RECRUITER VIEW ========= */
-        .skills-wrap {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 18px;
-        }
-        .skill-summary {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 8px;
-        }
-        .skill-category {
-            background: rgba(0,0,0,0.25);
-            border: 1px solid rgba(255,255,255,0.14);
-            border-radius: 14px;
-            padding: 18px;
-        }
-        .skill-category + .skill-category { margin-top: 4px; }
-        .skill-category h3 {
-            font-size: 1.1rem;
-            letter-spacing: 0.3px;
-            font-weight: 800;
-            margin-bottom: 12px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            text-transform: uppercase;
-            opacity: 0.95;
-        }
-        .skill-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
-        }
-        .skill-card {
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 12px;
-            border-radius: 12px;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.12);
-            transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
-        }
-        .skill-card:hover {
-            transform: translateY(-2px);
-            background: rgba(255,255,255,0.1);
-            border-color: rgba(255,255,255,0.22);
-        }
-        .ring {
-            --val: 0;
-            --track: rgba(255,255,255,0.15);
-            --fill: #ff9800;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background:
-              conic-gradient(var(--fill) calc(var(--val) * 1%), var(--track) 0);
-            position: relative;
-            flex: 0 0 auto;
-            transition: background 1s ease;
-        }
-        .ring::after {
-            content: attr(data-label);
-            position: absolute;
-            inset: 6px;
-            background: rgba(0,0,0,0.6);
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            font-size: 0.78rem;
-            font-weight: 800;
-        }
-        .skill-meta { display: grid; gap: 2px; }
-        .skill-title {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 800;
-            letter-spacing: 0.2px;
-        }
-        .skill-note { font-size: 0.86rem; opacity: 0.92; }
-        .level {
-            font-size: 0.72rem;
-            font-weight: 900;
-            letter-spacing: 0.4px;
-            padding: 3px 8px;
-            border-radius: 999px;
-            border: 1px solid rgba(255,255,255,0.18);
-            background: rgba(255,255,255,0.10);
-        }
-        .lvl-master { background: rgba(76, 175, 239, 0.22); border-color: rgba(76,175,239,0.5); }
-        .lvl-adv    { background: rgba(243, 156, 18, 0.22); border-color: rgba(243,156,18,0.5); }
-        .lvl-prof   { background: rgba(39, 174, 96, 0.22); border-color: rgba(39,174,96,0.5); }
-        .lvl-fam    { background: rgba(155, 89, 182, 0.22); border-color: rgba(155,89,182,0.5); }
+    /* ===== SKILLS ===== */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .skill-card { background: rgba(30, 41, 59, 0.8); padding: 20px; border-radius: 12px; transition: transform 0.3s ease; cursor: pointer; }
+    .skill-card:hover { transform: scale(1.05); }
+    .skill-card h3 { color: #22d3ee; margin-bottom: 10px; }
 
-        .skill-card .ring { animation: popIn 0.9s ease both; }
-        .skill-card:nth-child(2) .ring { animation-delay: .05s; }
-        .skill-card:nth-child(3) .ring { animation-delay: .1s; }
-        .skill-card:nth-child(4) .ring { animation-delay: .15s; }
-        .skill-card:nth-child(5) .ring { animation-delay: .2s; }
-        .skill-card:nth-child(6) .ring { animation-delay: .25s; }
+    /* ===== PROJECTS ===== */
+    .project { background: rgba(30, 41, 59, 0.85); padding: 20px; border-radius: 12px; margin-bottom: 20px; transition: 0.3s; }
+    .project:hover { transform: translateY(-3px); box-shadow: 0 0 12px rgba(56,189,248,0.6); }
+    .project h3 { color: #38bdf8; }
 
-        @keyframes popIn { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes fadeInUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        @keyframes zoomIn { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-
-        /* ========= PROJECTS SLIDER ========= */
-        .projects-top { display:flex; justify-content: space-between; align-items:center; gap:12px; margin-bottom:10px; }
-        .projects-cta { display:flex; gap:8px; align-items:center; }
-        .slider-wrap {
-            position: relative;
-            overflow: hidden;
-            border-radius: 14px;
-            border: 1px solid rgba(255,255,255,0.12);
-            background: rgba(0,0,0,0.18);
-            padding: 8px 0;
-        }
-        .slider {
-            display: grid;
-            grid-auto-flow: column;
-            grid-auto-columns: minmax(260px, 1fr);
-            gap: 14px;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            padding: 12px 16px 18px;
-        }
-        .slider::-webkit-scrollbar { height: 10px; }
-        .slider::-webkit-scrollbar-track { background: rgba(255,255,255,0.06); border-radius: 999px; }
-        .slider::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.25); border-radius: 999px; }
-
-        .card {
-            scroll-snap-align: start;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.14);
-            border-radius: 14px;
-            padding: 16px;
-            display: grid;
-            gap: 10px;
-            min-height: 200px;
-            transition: transform .18s ease, background .18s ease, border-color .18s ease;
-        }
-        .card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.24); }
-        .card h3 { font-size: 1.15rem; display:flex; align-items:center; gap:8px; }
-        .card p { font-size: 0.95rem; opacity: 0.95; }
-        .card .meta { font-size: .85rem; opacity: .85; }
-        .card .actions { display:flex; gap:10px; flex-wrap:wrap; }
-
-        .nav-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            border: 1px solid rgba(255,255,255,0.25);
-            background: rgba(0,0,0,0.35);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 999px;
-            display: grid;
-            place-items: center;
-            cursor: pointer;
-            transition: .2s;
-            backdrop-filter: blur(2px);
-        }
-        .nav-btn:hover { background: rgba(0,0,0,0.55); border-color: rgba(255,255,255,0.45); }
-        .nav-prev { left: 8px; }
-        .nav-next { right: 8px; }
-
-        .dots { display:flex; justify-content:center; gap:8px; margin: 6px 0 4px; }
-        .dot {
-            width: 8px; height: 8px; border-radius: 999px;
-            background: rgba(255,255,255,0.35); border: 1px solid rgba(255,255,255,0.25);
-            transition: .2s;
-        }
-        .dot.active { background: #ff9800; border-color: #ffb84d; }
-
-        /* Responsive tweaks */
-        @media (max-width: 700px) { .skill-grid { grid-template-columns: 1fr; } }
-        @media (max-width: 600px) {
-            header img { width: 120px; height: 120px; }
-            header h1 { font-size: 2rem; }
-            header p { font-size: 1rem; }
-            nav { max-width: 100%; padding: 10px; }
-            section { padding: 25px 15px; margin: 12px 10px; max-width: 95%; }
-            footer { padding: 15px 10px; font-size: 0.9rem; max-width: 95%; }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <img id="profile-pic" src="2025-08-10T13_16_33.png" alt="Adarsh PR" />
-        <h1>Adarsh PR</h1>
-        <p>Sreyas Institute of Engineering and Technology | 3rd Year CSE Student</p>
-    </header>
-
-    <nav>
-        <a href="#about">About Me</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#certificates">Certificates</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <section id="about">
-        <h2><i class="fa fa-user"></i> About Me</h2>
-        <p>
-            Hello! I am <strong>Adarsh PR</strong>, a passionate Computer Science
-            Engineering student with skills in Python, Java, HTML, CSS, and C. I
-            enjoy building innovative real-time projects and preparing for a strong
-            career in tech.
-        </p>
-    </section>
-
-    <!-- ======== UPDATED SKILLS (Mastery Look) ======== -->
-    <section id="skills">
-        <h2><i class="fa fa-sparkles fa-star"></i> Skills</h2>
-
-        <!-- Quick recruiter summary -->
-        <div class="skill-summary">
-            <span class="pill"><i class="fa fa-code"></i> Python, Java, C</span>
-            <span class="pill"><i class="fa fa-globe"></i> HTML, CSS, JS</span>
-            <span class="pill"><i class="fa fa-database"></i> SQL</span>
-            <span class="pill"><i class="fa fa-diagram-project"></i> DSA & OOP</span>
-            <span class="pill"><i class="fa fa-laptop-code"></i> Projects: ML & Full-stack</span>
-        </div>
-
-        <div class="skills-wrap">
-            <!-- Programming Languages -->
-            <div class="skill-category">
-                <h3><i class="fa fa-terminal"></i> Programming Languages</h3>
-                <div class="skill-grid">
-                    <div class="skill-card">
-                        <div class="ring" style="--val: 90" data-label="90%"></div>
-                        <div class="skill-meta">
-                            <div class="skill-title">Python <span class="level lvl-master">MASTERY</span></div>
-                            <div class="skill-note">Scripting, data handling, ML basics, automation</div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="ring" style="--val: 85" data-label="85%"></div>
-                        <div class="skill-meta">
-                            <div class="skill-title">Java <span class="level lvl-adv">ADVANCED</span></div>
-                            <div class="skill-note">OOP, backend fundamentals, collections, threading basics</div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="ring" style="--val: 80" data-label="80%"></div>
-                        <div class="skill-meta">
-                            <div class="skill-title">C <span class="level lvl-prof">PROFICIENT</span></div>
-                            <div class="skill-note">Pointers, memory model, problem solving</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Web Development -->
-            <div class="skill-category">
-                <h3><i class="fa fa-globe"></i> Web Development</h3>
-                <div class="skill-grid">
-                    <div class="skill-card">
-                        <div class="ring" style="--val: 95" data-label="95%"></div>
-                        <div class="skill-meta">
-                            <div class="skill-title">HTML &amp; CSS <span class="level lvl-master">MASTERY</span></div>
-                            <div class="skill-note">Responsive layouts, animations, accessibility-conscious</div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="ring" style="--val: 70" data-label="70%"></div>
-                        <div class="skill-meta">
-                            <div class="skill-title">JavaScript <span class="level lvl-prof">PROFICIENT</span></div>
-                            <div class="skill-note">DOM, fetch API, modular code, basic SPA patterns</div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="ring" style="--val: 68" data-label="68%"></div>
-                        <div class="skill-meta">
-                            <div class="skill-title">Node.js / Express <span class="level lvl-fam">FAMILIAR</span></div>
-                            <div class="skill-note">REST APIs, routing, middleware</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Databases -->
-            <div class="skill-category">
-                <h3><i class="fa fa-database"></i> Databases</h3>
-                <div class="skill-grid">
-                    <div class="skill-card">
-                        <div class="ring" style="--val: 75" data-label="75%"></div>
-                        <div class="skill-meta">
-                            <div class="skill-title">SQL (MySQL/PostgreSQL) <span class="level lvl-prof">PROFICIENT</span></div>
-                            <div class="skill-note">Joins, indexing basics, normalization, transactions</div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="ring" style="--val: 55" data-label="55%"></div>
-                        <div class="skill-meta">
-                            <div class="skill-title">MongoDB <span class="level lvl-fam">FAMILIAR</span></div>
-                            <div class="skill-note">CRUD, simple aggregations, schema design basics</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CS Fundamentals -->
-            <div class="skill-category">
-                <h3><i class="fa fa-brain"></i> CS Fundamentals</h3>
-                <div class="skill-grid">
-                    <div class="skill-card">
-                        <div class="ring" style="--val: 78" data-label="78%"></div>
-                        <div class="skill-meta">
-                            <div class="skill-title">Data Structures &amp; Algorithms <span class="level lvl-prof">PROFICIENT</span></div>
-                            <div class="skill-note">Arrays, Trees, Graphs, Heaps; complexity analysis</div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="ring" style="--val: 72" data-label="72%"></div>
-                        <div class="skill-meta">
-                            <div class="skill-title">Object-Oriented Programming <span class="level lvl-prof">PROFICIENT</span></div>
-                            <div class="skill-note">Abstraction, Inheritance, Polymorphism, SOLID basics</div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="ring" style="--val: 60" data-label="60%"></div>
-                        <div class="skill-meta">
-                            <div class="skill-title">OS &amp; Networks <span class="level lvl-fam">FAMILIAR</span></div>
-                            <div class="skill-note">Processes, memory mgmt, TCP/IP, HTTP/HTTPS</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tools -->
-            <div class="skill-category">
-                <h3><i class="fa fa-wrench"></i> Tools</h3>
-                <div class="skill-grid">
-                    <div class="skill-card">
-                        <div class="ring" style="--val: 78" data-label="78%"></div>
-                        <div class="skill-meta">
-                            <div class="skill-title">Git &amp; GitHub <span class="level lvl-prof">PROFICIENT</span></div>
-                            <div class="skill-note">Branching, PRs, issues, project hygiene</div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="ring" style="--val: 58" data-label="58%"></div>
-                        <div class="skill-meta">
-                            <div class="skill-title">Linux &amp; CLI <span class="level lvl-fam">FAMILIAR</span></div>
-                            <div class="skill-note">Shell basics, permissions, tooling</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Optional recruiter CTA -->
-        <div style="margin-top:14px">
-            <a class="btn" href="resume.pdf" download><i class="fa fa-file-arrow-down"></i> Download Resume</a>
-        </div>
-    </section>
-
-    <!-- ========= SLIDABLE PROJECTS SECTION ========= -->
-    <section id="projects">
-        <div class="projects-top">
-            <h2 style="margin:0"><i class="fa fa-folder-open"></i> Projects</h2>
-            <div class="projects-cta">
-                <a class="btn" href="https://github.com/adarsh-pr68?tab=repositories" target="_blank" rel="noopener">View All</a>
-            </div>
-        </div>
-        <p style="margin-bottom:10px;"></p>
-
-        <div class="slider-wrap">
-            <button class="nav-btn nav-prev" aria-label="Previous"><i class="fa fa-chevron-left"></i></button>
-            <div class="slider" id="projectSlider" tabindex="0" aria-label="Project slider">
-                <!-- Project 1 -->
-                <article class="card">
-                    <h3><i class="fa fa-cloud-sun-rain"></i> Weather Prediction System</h3>
-                    <p>
-                        A ML-based app that ingests historical weather data and current conditions
-                        to forecast temperature and precipitation. Built with Python (pandas,
-                        scikit-learn) and a clean UI. Includes data cleaning, feature engineering,
-                        and model evaluation dashboards.
-                    </p>
-                    <div class="meta">Tech: Python, scikit-learn, Flask, HTML/CSS</div>
-                    <div class="actions">
-                        <a class="btn" target="_blank" rel="noopener"
-                           href="https://github.com/adarsh-pr68?tab=repositories&q=weather+prediction">
-                           <i class="fa fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Project 2 -->
-                <article class="card">
-                    <h3><i class="fa fa-truck"></i> Supply Chain Management System</h3>
-                    <p>
-                        End-to-end SCM web app covering inventory tracking, order processing,
-                        vendor management, and role-based access. Designed with a modular
-                        architecture and RESTful APIs for scalability and easy integration.
-                    </p>
-                    <div class="meta">Tech: Java, JDBC/SQL, Servlets or Spring Boot, HTML/CSS</div>
-                    <div class="actions">
-                        <a class="btn" target="_blank" rel="noopener"
-                           href="https://github.com/adarsh-pr68?tab=repositories&q=supply+chain">
-                           <i class="fa fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Project 3 -->
-                <article class="card">
-                    <h3><i class="fa fa-calculator"></i> Scientific Calculator</h3>
-                    <p>
-                        A precise, user-friendly scientific calculator supporting trigonometric,
-                        logarithmic, factorial, and memory functions. Includes input validation,
-                        keyboard shortcuts, and unit-tested core logic.
-                    </p>
-                    <div class="meta">Tech: Python/Java (swing/tkinter) or HTML/CSS/JS</div>
-                    <div class="actions">
-                        <a class="btn" target="_blank" rel="noopener"
-                           href="https://github.com/adarsh-pr68?tab=repositories&q=scientific+calculator">
-                           <i class="fa fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Project 4 -->
-                <article class="card">
-                    <h3><i class="fa fa-paw"></i> Rescue & Medication App (Stray Animals)</h3>
-                    <p>
-                        Community-driven platform where users report injured strays, receive
-                        first-aid/medication guidance, and upload proof. Gamified micro-rewards
-                        encourage participation while dashboards help track case status.
-                    </p>
-                    <div class="meta">Tech: Node/Express, MongoDB or SQL, HTML/CSS/JS</div>
-                    <div class="actions">
-                        <a class="btn" target="_blank" rel="noopener"
-                           href="https://github.com/adarsh-pr68?tab=repositories&q=rescue+medication">
-                           <i class="fa fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </article>
-            </div>
-            <button class="nav-btn nav-next" aria-label="Next"><i class="fa fa-chevron-right"></i></button>
-        </div>
-        <div class="dots" id="dots" aria-hidden="true"></div>
-    </section>
-
-    <!-- Certificates & Achievements Section -->
-<section>
-    <h2>Certificates & Achievements</h2>
-    <div class="certificates-snap" id="certificates">
-        <div class="cert-card">
-            <embed src="Certificates/certificate2" type="application/pdf" />
-        </div>
-        <div class="cert-card">
-            <embed src="Certificates/certificate1" type="application/pdf" />
-        </div>
-        <div class="cert-card">
-            <embed src="certificates/cert3.pdf" type="application/pdf" />
-        </div>
-    </div>
-    <div class="dots" id="cert-dots"></div>
-</section>
-
+    /* ===== CERTIFICATES SLIDER ===== */
 <style>
-.certificates-snap {
-    height: 500px; /* Adjust to your section size */
-    overflow-y: auto;
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
+/* Container */
+.certSwiper {
+  width: 100%;
+  height: 350px;
+  margin-top: 30px;
+  overflow: hidden;
 }
 
-.cert-card {
-    scroll-snap-align: start;
-    height: 500px; /* Match container height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #f4f4f4;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+/* Each slide */
+.certSwiper .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.8s ease, opacity 0.8s ease;
 }
 
-.cert-card embed {
-    width: 90%;
-    height: 90%;
-    border-radius: 8px;
-    border: none;
+/* Certificate images */
+.certSwiper .swiper-slide img {
+  width: auto;
+  max-width: 90%;
+  max-height: 280px;
+  object-fit: contain;
+  border-radius: 12px;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Highlight the active certificate */
+.certSwiper .swiper-slide-active img {
+  transform: scale(1.1);
+  box-shadow: 0 0 35px rgba(56,189,248,0.8),
+              0 0 70px rgba(14,165,233,0.6);
+  z-index: 2;
 }
 </style>
 
+<style>
+    /* ===== HIRE ME CTA ===== */
+    .hire-me { background: linear-gradient(135deg, #14b8a6, #0ea5e9); color: #fff; text-align: center; padding: 100px 20px; border-radius: 20px; margin-bottom: 60px; }
+    .hire-me h2 { font-size: 2rem; margin-bottom: 15px; }
+    .hire-me p { font-size: 1.2rem; margin-bottom: 25px; }
+
+    /* ===== CONTACT ===== */
+    .contact-form { display: grid; gap: 15px; max-width: 600px; margin: auto; }
+    .contact-form input, .contact-form textarea { padding: 12px; border-radius: 8px; border: none; outline: none; background: rgba(255,255,255,0.1); color: #fff; }
+    .contact-form button { background: #22d3ee; }
+
+    /* ===== FOOTER ===== */
+    footer { background: #0f172a; text-align: center; padding: 20px; font-size: 0.9rem; margin-top: 40px; }
+
+    /* Responsive */
+    @media(max-width: 768px){ header { flex-direction: column; } nav { margin-top: 10px; } .hero h2 { font-size: 2rem; } }
+  </style>
+</head>
+<!-- Quote Popup Layer -->
+<div id="quote-popup">
+  <p>"Curiosity drives me to keep exploring, learning, and improving every day."</p>
+</div>
+
+<style>
+  #quote-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.85); /* semi-transparent dark */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.5s ease, visibility 1.5s ease;
+  }
+
+  #quote-popup p {
+    font-size: 1.8rem;
+    max-width: 700px;
+    color: #38bdf8;
+    font-weight: 600;
+    line-height: 1.5;
+    text-shadow: 0 0 10px rgba(56,189,248,0.9);
+  }
+
+  /* Active state */
+  #quote-popup.show {
+    opacity: 1;
+    visibility: visible;
+  }
+</style>
+
 <script>
-function setupVerticalSnap(containerId, dotsId) {
-    const container = document.getElementById(containerId);
-    const cards = container.querySelectorAll('.cert-card');
-    const dotsContainer = document.getElementById(dotsId);
-    let currentIndex = 0;
+  window.addEventListener("load", function() {
+    const popup = document.getElementById("quote-popup");
+    popup.classList.add("show");
 
-    function updateDots() {
-        dotsContainer.innerHTML = '';
-        for (let i = 0; i < cards.length; i++) {
-            const dot = document.createElement('span');
-            dot.classList.add('dot');
-            if (i === currentIndex) dot.classList.add('active');
-            dot.addEventListener('click', () => {
-                currentIndex = i;
-                container.scrollTo({ top: i * cards[0].clientHeight, behavior: 'smooth' });
-                updateDots();
-            });
-            dotsContainer.appendChild(dot);
-        }
-    }
-
-    container.addEventListener('scroll', () => {
-        currentIndex = Math.round(container.scrollTop / cards[0].clientHeight);
-        updateDots();
-    });
-
-    updateDots();
-    window.addEventListener('resize', () => {
-        container.scrollTo({ top: currentIndex * cards[0].clientHeight, behavior: 'smooth' });
-    });
-}
-
-setupVerticalSnap('certificates', 'cert-dots');
+    // Hide after 4 seconds
+    setTimeout(() => {
+      popup.classList.remove("show");
+    }, 4000);
+  });
 </script>
 
 
-    <section id="contact">
-        <h2><i class="fa fa-paper-plane"></i> Contact</h2>
-        <p><strong>Email:</strong> adarsh.pr.68@gmail.com</p>
-        <p><strong>Phone:</strong> +91-7396864503</p>
-        <div class="social-icons">
-            <a href="mailto:adarsh.pr.68@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="https://github.com/adarsh-pr68" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/adarsh-pr-3a126a349/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.instagram.com/_adu_68_/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/917396864503" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://x.com/adarsh_pr_68" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
-        </div>
-        <br />
-        <a href="resume.pdf" class="btn" download>Download Resume</a>
-    </section>
 
-    <footer>© Adarsh PR | All rights reserved.</footer>
+<body>
+  <!-- HEADER -->
+  <header>
+    <h1>Adarsh PR</h1>
+    <nav>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#contact">Contact</a>
+      <a href="resume.pdf" target="_blank" class="resume-btn">Download Resume</a>
+    </nav>
+  </header>
 
-    <script>
-        const profilePic = document.getElementById('profile-pic');
-        window.addEventListener('scroll', () => {
-            profilePic.style.transform = window.scrollY > 50 ? 'scale(0.8)' : 'scale(1)';
-        });
+  <!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h2>Hi, I'm Adarsh 👋</h2>
+      <p>A passionate <b>3rd Year CSE B.Tech Student</b> aspiring to secure an internship where I can apply my technical skills, problem-solving ability, and enthusiasm to learn.</p>
+      <a href="#contact" class="btn">Hire Me</a>
+    </div>
+    <div class="hero-photo">
+      <!-- Replace adarsh.jpg with your actual photo file -->
+      <img src="profile_pic.png" alt="Adarsh PR">
+    </div>
+  </div>
+</section>
 
-        // ===== Projects slider logic (arrows, dots, drag, keys) =====
-        const slider = document.getElementById('projectSlider');
-        const prevBtn = document.querySelector('.nav-prev');
-        const nextBtn = document.querySelector('.nav-next');
-        const dotsWrap = document.getElementById('dots');
 
-        // Build dots based on cards
-        const cards = Array.from(slider.querySelectorAll('.card'));
-        const cardWidth = () => cards[0].getBoundingClientRect().width + 14; // width + gap
-        cards.forEach((_, i) => {
-            const d = document.createElement('span');
-            d.className = 'dot' + (i === 0 ? ' active' : '');
-            dotsWrap.appendChild(d);
-        });
-        const dots = Array.from(dotsWrap.children);
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card"><h3>Programming</h3><p>Python, C, C++, Java</p></div>
+      <div class="skill-card"><h3>Web Development</h3><p>HTML5, CSS3, JavaScript, React, Node.js</p></div>
+      <div class="skill-card"><h3>Databases</h3><p>MySQL, MongoDB</p></div>
+      <div class="skill-card"><h3>Tools</h3><p>Git, GitHub, VS Code, Linux</p></div>
+      <div class="skill-card"><h3>Core Subjects</h3><p>DSA, Computer Networks, OS</p></div>
+      <div class="skill-card"><h3>Soft Skills</h3><p>Communication, Teamwork, Adaptability</p></div>
+    </div>
+  </section>
 
-        const snapTo = (index) => {
-            const clamped = Math.max(0, Math.min(index, cards.length - 1));
-            slider.scrollTo({ left: clamped * cardWidth(), behavior: 'smooth' });
-        };
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project"><h3>Portfolio Website</h3><p>Fully responsive personal portfolio with modern UI/UX, recruiter-friendly design.</p></div>
+    <div class="project"><h3>Library Management System</h3><p>Developed using Java and MySQL for managing library records efficiently.</p></div>
+    <div class="project"><h3>Chat Application</h3><p>Built with Node.js and Socket.io for real-time messaging.</p></div>
+  </section>
 
-        const currentIndex = () => Math.round(slider.scrollLeft / cardWidth());
+<!-- CERTIFICATES SHOWCASE -->
+<section id="certificates">
+  <h2>Certificates</h2>
+  <div class="swiper certSwiper">
+    <div class="swiper-wrapper">
+      <!-- Replace with your certificate PNGs -->
+      <div class="swiper-slide">
+        <img src="certificate1.png" alt="Certificate 1">
+      </div>
+      <div class="swiper-slide">
+        <img src="certificate2.png" alt="Certificate 2">
+      </div>
+      <div class="swiper-slide">
+        <img src="certificates/certificate3.png" alt="Certificate 3">
+      </div>
+      <div class="swiper-slide">
+        <img src="certificates/certificate4.png" alt="Certificate 4">
+      </div>
+      <div class="swiper-slide">
+        <img src="certificates/certificate5.png" alt="Certificate 5">
+      </div>
+    </div>
 
-        const updateDots = () => {
-            const idx = currentIndex();
-            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-        };
+    <!-- Pagination dots -->
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
 
-        nextBtn.addEventListener('click', () => snapTo(currentIndex() + 1));
-        prevBtn.addEventListener('click', () => snapTo(currentIndex() - 1));
-        slider.addEventListener('scroll', () => { window.requestAnimationFrame(updateDots); });
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-        // Keyboard nav
-        slider.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight') { e.preventDefault(); snapTo(currentIndex() + 1); }
-            if (e.key === 'ArrowLeft')  { e.preventDefault(); snapTo(currentIndex() - 1); }
-        });
+<script>
+  var certSwiper = new Swiper(".certSwiper", {
+    loop: true,                  // infinite loop
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 3,            // ✅ show multiple at once
+    spaceBetween: 30,            // spacing between certificates
+    autoplay: {
+      delay: 5000,               // ✅ 5s per slide
+      disableOnInteraction: false,
+    },
+    speed: 1000,
+    pagination: { el: ".swiper-pagination", clickable: true }
+  });
+</script>
 
-        // Drag / swipe support
-        let isDown = false, startX = 0, startScroll = 0;
-        slider.addEventListener('pointerdown', (e) => {
-            isDown = true;
-            startX = e.clientX;
-            startScroll = slider.scrollLeft;
-            slider.setPointerCapture(e.pointerId);
-        });
-        slider.addEventListener('pointermove', (e) => {
-            if (!isDown) return;
-            const dx = e.clientX - startX;
-            slider.scrollLeft = startScroll - dx;
-        });
-        const endDrag = (e) => {
-            if (!isDown) return;
-            isDown = false;
-            // Snap to nearest card after drag
-            snapTo(currentIndex());
-        };
-        slider.addEventListener('pointerup', endDrag);
-        slider.addEventListener('pointercancel', endDrag);
-        slider.addEventListener('pointerleave', endDrag);
+  <!-- HIRE ME CTA -->
+  <section class="hire-me">
+    <h2>Ready to Contribute as an Intern 🚀</h2>
+    <p>I’m actively seeking internship opportunities where I can apply my technical expertise, learn from industry experts, and contribute to meaningful projects.</p>
+    <a href="#contact" class="btn">Hire Me</a>
+  </section>
 
-        // Dot click
-        dots.forEach((d, i) => d.addEventListener('click', () => snapTo(i)));
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>📧 Email: <a href="mailto:adarsh.pr.68@gmail.com">adarsh.pr.68@gmail.com</a></p>
+    <p>📱 Phone: <a href="tel:+917396864503">+91-7396864503</a></p>
+    <p>🔗 <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> | 
+        <a href="https://github.com/yourgithub" target="_blank">GitHub</a> | 
+        <a href="https://x.com/adarsh_pr_68" target="_blank">X</a> |
+        <a href="https://www.instagram.com/_adu_68_/" target="_blank">Instagram</a> |
+        <a href="https://wa.me/917396864503" target="_blank">Whatsapp</a></p>  
 
-        // Recalculate on resize
-        window.addEventListener('resize', () => snapTo(currentIndex()));
-    </script>
+    <!-- Contact Form -->
+    <form class="contact-form">
+      <input type="text" name="from_name" placeholder="Your Name" required>
+      <input type="email" name="reply_to" placeholder="Your Email" required>
+      <textarea rows="5" name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <!-- EmailJS Script -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("0P8Xu9kpOT0kdzD-i"); // Replace with your EmailJS Public Key
+    })();
+
+    document.querySelector(".contact-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      emailjs.sendForm("service_mhsmyu8", "template_5zzzn5k", this)
+        .then(() => { alert("✅ Message Sent Successfully!"); this.reset(); })
+        .catch(err => { alert("❌ Error sending message.\n" + JSON.stringify(err)); });
+    });
+  </script>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Adarsh PR | All Rights Reserved</p>
+  </footer>
 </body>
 </html>
-
