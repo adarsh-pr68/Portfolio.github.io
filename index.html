@@ -15,57 +15,29 @@
     a { color: inherit; text-decoration: none; }
     h1, h2, h3 { font-weight: 600; margin-bottom: 10px; }
     section { padding: 80px 20px; max-width: 1100px; margin: auto; }
-    .btn { display: inline-block; padding: 12px 24px; margin-top: 15px; background: #14b8a6; color: #fff; font-weight: bold; border-radius: 8px; transition: all 0.3s ease; }
+    .btn { display: inline-block; padding: 12px 24px; margin-top: 15px; background: #14b8a6; color: #fff; font-weight: bold; border-radius: 8px; transition: all 0.3s ease; text-align: center; }
     .btn:hover { background: #0d9488; transform: translateY(-2px); box-shadow: 0 0 15px rgba(20, 184, 166, 0.7); }
 
     /* ===== HEADER ===== */
-    header { background: rgba(15, 23, 42, 0.95); position: sticky; top: 0; z-index: 999; display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; }
-    header h1 { font-size: 1.5rem; color: #22d3ee; }
-    nav a { margin-left: 20px; font-weight: 500; color: #f8fafc; transition: 0.3s; }
+    header { background: rgba(15, 23, 42, 0.95); position: sticky; top: 0; z-index: 999; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 15px 20px; }
+    header h1 { font-size: 1.3rem; color: #22d3ee; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; }
+    nav a { margin: 8px 12px; font-weight: 500; color: #f8fafc; transition: 0.3s; font-size: 0.95rem; }
     nav a:hover { color: #38bdf8; }
 
     /* Resume Button Glow */
-    .resume-btn { background: #0ea5e9; color: #fff; padding: 10px 18px; border-radius: 25px; font-weight: bold; animation: glow 1.5s infinite alternate; }
+    .resume-btn { background: #0ea5e9; color: #fff; padding: 8px 16px; border-radius: 25px; font-weight: bold; animation: glow 1.5s infinite alternate; font-size: 0.9rem; }
     @keyframes glow { from { box-shadow: 0 0 5px #38bdf8, 0 0 10px #38bdf8; } to { box-shadow: 0 0 20px #0ea5e9, 0 0 30px #0ea5e9; } }
 
-    /* ===== HERO WITH PHOTO ===== */
-.hero-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-}
-
-.hero-text {
-  max-width: 600px;
-  text-align: left;
-}
-
-.hero-photo img {
-  width: 230px;
-  height: 230px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #22d3ee;
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.7);
-  transition: transform 0.3s ease;
-}
-
-.hero-photo img:hover {
-  transform: scale(1.05);
-}
-
-/* Responsive */
-@media(max-width: 768px){
-  .hero-content { flex-direction: column; text-align: center; }
-  .hero-text { text-align: center; }
-}
-
+    /* ===== HERO ===== */
+    .hero-content { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 40px; text-align: center; }
+    .hero-text { max-width: 600px; }
+    .hero-photo img { width: 220px; height: 220px; object-fit: cover; border-radius: 50%; border: 4px solid #22d3ee; box-shadow: 0 0 20px rgba(56, 189, 248, 0.7); transition: transform 0.3s ease; }
+    .hero-photo img:hover { transform: scale(1.05); }
 
     /* ===== SKILLS ===== */
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .skill-card { background: rgba(30, 41, 59, 0.8); padding: 20px; border-radius: 12px; transition: transform 0.3s ease; cursor: pointer; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .skill-card { background: rgba(30, 41, 59, 0.8); padding: 20px; border-radius: 12px; transition: transform 0.3s ease; cursor: pointer; text-align: center; }
     .skill-card:hover { transform: scale(1.05); }
     .skill-card h3 { color: #22d3ee; margin-bottom: 10px; }
 
@@ -75,48 +47,15 @@
     .project h3 { color: #38bdf8; }
 
     /* ===== CERTIFICATES SLIDER ===== */
-<style>
-/* Container */
-.certSwiper {
-  width: 100%;
-  height: 350px;
-  margin-top: 30px;
-  overflow: hidden;
-}
+    .certSwiper { width: 100%; height: 350px; margin-top: 30px; }
+    .certSwiper .swiper-slide { display: flex; justify-content: center; align-items: center; }
+    .certSwiper .swiper-slide img { width: auto; max-width: 85%; max-height: 260px; border-radius: 12px; transition: transform 0.6s ease, box-shadow 0.6s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+    .certSwiper .swiper-slide-active img { transform: scale(1.1); box-shadow: 0 0 35px rgba(56,189,248,0.8), 0 0 70px rgba(14,165,233,0.6); }
 
-/* Each slide */
-.certSwiper .swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.8s ease, opacity 0.8s ease;
-}
-
-/* Certificate images */
-.certSwiper .swiper-slide img {
-  width: auto;
-  max-width: 90%;
-  max-height: 280px;
-  object-fit: contain;
-  border-radius: 12px;
-  transition: transform 0.6s ease, box-shadow 0.6s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-/* Highlight the active certificate */
-.certSwiper .swiper-slide-active img {
-  transform: scale(1.1);
-  box-shadow: 0 0 35px rgba(56,189,248,0.8),
-              0 0 70px rgba(14,165,233,0.6);
-  z-index: 2;
-}
-</style>
-
-<style>
     /* ===== HIRE ME CTA ===== */
-    .hire-me { background: linear-gradient(135deg, #14b8a6, #0ea5e9); color: #fff; text-align: center; padding: 100px 20px; border-radius: 20px; margin-bottom: 60px; }
-    .hire-me h2 { font-size: 2rem; margin-bottom: 15px; }
-    .hire-me p { font-size: 1.2rem; margin-bottom: 25px; }
+    .hire-me { background: linear-gradient(135deg, #14b8a6, #0ea5e9); color: #fff; text-align: center; padding: 60px 20px; border-radius: 20px; margin-bottom: 60px; }
+    .hire-me h2 { font-size: 1.8rem; margin-bottom: 15px; }
+    .hire-me p { font-size: 1rem; margin-bottom: 25px; }
 
     /* ===== CONTACT ===== */
     .contact-form { display: grid; gap: 15px; max-width: 600px; margin: auto; }
@@ -124,13 +63,29 @@
     .contact-form button { background: #22d3ee; }
 
     /* ===== FOOTER ===== */
-    footer { background: #0f172a; text-align: center; padding: 20px; font-size: 0.9rem; margin-top: 40px; }
+    footer { background: #0f172a; text-align: center; padding: 15px; font-size: 0.85rem; margin-top: 40px; }
 
-    /* Responsive */
-    @media(max-width: 768px){ header { flex-direction: column; } nav { margin-top: 10px; } .hero h2 { font-size: 2rem; } }
+    /* ===== RESPONSIVE BREAKPOINTS ===== */
+    @media(max-width: 1024px) {
+      .hero-text h2 { font-size: 1.8rem; }
+    }
+    @media(max-width: 768px){
+      header { flex-direction: column; }
+      nav { margin-top: 10px; }
+      .hero-photo img { width: 180px; height: 180px; }
+      .certSwiper { height: 300px; }
+      .certSwiper .swiper-slide img { max-width: 95%; max-height: 220px; }
+    }
+    @media(max-width: 480px){
+      .hero-text h2 { font-size: 1.5rem; }
+      .hero-text p { font-size: 0.9rem; }
+      .btn { padding: 10px 18px; font-size: 0.9rem; }
+      nav a { font-size: 0.85rem; margin: 5px 8px; }
+      .hire-me h2 { font-size: 1.5rem; }
+    }
   </style>
 </head>
-<!-- Quote Popup Layer -->
+<!-- Quote Popup -->
 <div id="quote-popup">
   <p>"Curiosity drives me to keep exploring, learning, and improving every day."</p>
 </div>
@@ -142,7 +97,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(15, 23, 42, 0.85); /* semi-transparent dark */
+    background: rgba(15, 23, 42, 0.85); /* dark transparent background */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -151,7 +106,8 @@
     z-index: 9999;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 1.5s ease, visibility 1.5s ease;
+    pointer-events: none;  /* ✅ allows clicking/scrolling through */
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
   }
 
   #quote-popup p {
@@ -163,7 +119,7 @@
     text-shadow: 0 0 10px rgba(56,189,248,0.9);
   }
 
-  /* Active state */
+  /* Show state */
   #quote-popup.show {
     opacity: 1;
     visibility: visible;
@@ -175,14 +131,22 @@
     const popup = document.getElementById("quote-popup");
     popup.classList.add("show");
 
-    // Hide after 4 seconds
-    setTimeout(() => {
+    // Remove when user scrolls or touches/clicks
+    const removePopup = () => {
       popup.classList.remove("show");
-    }, 4000);
+      window.removeEventListener("scroll", removePopup);
+      window.removeEventListener("click", removePopup);
+      window.removeEventListener("touchstart", removePopup);
+    };
+
+    window.addEventListener("scroll", removePopup);
+    window.addEventListener("click", removePopup);
+    window.addEventListener("touchstart", removePopup);
+
+    // Auto-hide after 4s in case no interaction
+    setTimeout(removePopup, 4000);
   });
 </script>
-
-
 
 <body>
   <!-- HEADER -->
@@ -198,20 +162,18 @@
   </header>
 
   <!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-text">
-      <h2>Hi, I'm Adarsh 👋</h2>
-      <p>A passionate <b>3rd Year CSE B.Tech Student</b> aspiring to secure an internship where I can apply my technical skills, problem-solving ability, and enthusiasm to learn.</p>
-      <a href="#contact" class="btn">Hire Me</a>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h2>Hi, I'm Adarsh 👋</h2>
+        <p>A passionate <b>3rd Year CSE B.Tech Student</b> aspiring to secure an internship where I can apply my technical skills, problem-solving ability, and enthusiasm to learn.</p>
+        <a href="#contact" class="btn">Hire Me</a>
+      </div>
+      <div class="hero-photo">
+        <img src="2025-08-10T13_16_33.png" alt="Adarsh PR">
+      </div>
     </div>
-    <div class="hero-photo">
-      <!-- Replace adarsh.jpg with your actual photo file -->
-      <img src="2025-08-10T13_16_33.png" alt="Adarsh PR">
-    </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- SKILLS -->
   <section id="skills">
@@ -234,52 +196,35 @@
     <div class="project"><h3>Chat Application</h3><p>Built with Node.js and Socket.io for real-time messaging.</p></div>
   </section>
 
-<!-- CERTIFICATES SHOWCASE -->
-<section id="certificates">
-  <h2>Certificates</h2>
-  <div class="swiper certSwiper">
-    <div class="swiper-wrapper">
-      <!-- Replace with your certificate PNGs -->
-      <div class="swiper-slide">
-        <img src="Certificates/certificate1.png" alt="Certificate 1">
+  <!-- CERTIFICATES -->
+  <section id="certificates">
+    <h2>Certificates</h2>
+    <div class="swiper certSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="certificate1.png" alt="Certificates/certificate1.png"></div>
+        <div class="swiper-slide"><img src="certificate2.png" alt="Certificates/certificate2.png"></div>
+        <div class="swiper-slide"><img src="certificates/certificate3.png" alt="Certificate 3"></div>
+        <div class="swiper-slide"><img src="certificates/certificate4.png" alt="Certificate 4"></div>
+        <div class="swiper-slide"><img src="certificates/certificate5.png" alt="Certificate 5"></div>
       </div>
-      <div class="swiper-slide">
-        <img src="Certificates/certificate2.png" alt="Certificate 2">
-      </div>
-      <div class="swiper-slide">
-        <img src="Certificates/certificate2.png" alt="Certificate 3">
-      </div>
-      <div class="swiper-slide">
-        <img src="Certificates/certificate2.png" alt="Certificate 4">
-      </div>
-      <div class="swiper-slide">
-        <img src="Certificates/certificate2.png" alt="Certificate 5">
-      </div>
+      <div class="swiper-pagination"></div>
     </div>
+  </section>
 
-    <!-- Pagination dots -->
-    <div class="swiper-pagination"></div>
-  </div>
-</section>
-
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-<script>
-  var certSwiper = new Swiper(".certSwiper", {
-    loop: true,                  // infinite loop
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: 3,            // ✅ show multiple at once
-    spaceBetween: 30,            // spacing between certificates
-    autoplay: {
-      delay: 5000,               // ✅ 5s per slide
-      disableOnInteraction: false,
-    },
-    speed: 1000,
-    pagination: { el: ".swiper-pagination", clickable: true }
-  });
-</script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script>
+    var certSwiper = new Swiper(".certSwiper", {
+      loop: true,
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      spaceBetween: 20,
+      autoplay: { delay: 5000, disableOnInteraction: false },
+      speed: 1000,
+      pagination: { el: ".swiper-pagination", clickable: true },
+    });
+  </script>
 
   <!-- HIRE ME CTA -->
   <section class="hire-me">
@@ -299,7 +244,6 @@
         <a href="https://www.instagram.com/_adu_68_/" target="_blank">Instagram</a> |
         <a href="https://wa.me/917396864503" target="_blank">Whatsapp</a></p>  
 
-    <!-- Contact Form -->
     <form class="contact-form">
       <input type="text" name="from_name" placeholder="Your Name" required>
       <input type="email" name="reply_to" placeholder="Your Email" required>
@@ -308,13 +252,10 @@
     </form>
   </section>
 
-  <!-- EmailJS Script -->
+  <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
-    (function(){
-      emailjs.init("0P8Xu9kpOT0kdzD-i"); // Replace with your EmailJS Public Key
-    })();
-
+    (function(){ emailjs.init("0P8Xu9kpOT0kdzD-i"); })();
     document.querySelector(".contact-form").addEventListener("submit", function(e) {
       e.preventDefault();
       emailjs.sendForm("service_mhsmyu8", "template_5zzzn5k", this)
